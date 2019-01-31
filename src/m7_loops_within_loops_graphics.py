@@ -30,6 +30,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 ###############################################################################
 
 import rosegraphics as rg
+import math
 
 
 def main():
@@ -65,6 +66,41 @@ def run_test_hourglass():
 
 
 def hourglass(window, n, point, radius, color):
+    circle = rg.Circle(point,radius)
+    circle.fill_color = color
+    x = circle.center.x
+    y = circle.center.y
+    window.render()
+    for k in range (n):
+        for j in range(k+1):
+            new_circle = rg.Circle(rg.Point(x,y),radius)
+            new_circle.fill_color = color
+            line = rg.Line(rg.Point(x-radius,y),rg.Point(x+radius,y))
+            new_circle.attach_to(window)
+            line.attach_to(window)
+            window.render()
+            x = x + radius * 2
+        y = y + radius * 1 * math.sqrt(3)
+        x = circle.center.x - radius * (k+1)
+    x = circle.center.x
+    y = circle.center.y
+    for g in range (n):
+        for h in range(g+1):
+            new_circle = rg.Circle(rg.Point(x,y),radius)
+            new_circle.fill_color = color
+            line = rg.Line(rg.Point(x-radius,y),rg.Point(x+radius,y))
+            new_circle.attach_to(window)
+            line.attach_to(window)
+            window.render()
+            x = x + radius * 2
+        y = y - radius * 1 * math.sqrt(3)
+        x = circle.center.x - radius * (g+1)
+
+
+
+
+
+
     """
     See   hourglass_picture.pdf   in this project for pictures that may
     help you better understand the following specification:
