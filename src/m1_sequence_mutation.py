@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Jason Ims.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -31,8 +31,25 @@ def run_test_zero_changer():
     print('  Expected:', expected1)
     print('  Actual:  ', test1)
 
+    test1 = ([2,2,2],[0,0,0])
+    expected1 = ([2,2,2],[1,2,3])
+    zero_changer(test1)
+    print()
+    print('Test 2:')
+    print('  Expected:', expected1)
+    print('  Actual:  ', test1)
+
+    test1 = ([0,0,0,0,0,0,0],[1,2,3])
+    expected1 = ([1,2,3,4,5,6,7],[1,2,3])
+    zero_changer(test1)
+    print()
+    print('Test 3:')
+    print('  Expected:', expected1)
+    print('  Actual:  ', test1)
+
+
     # -------------------------------------------------------------------------
-    # TODO: 2. Write at least 2 additional tests for the
+    # Done: 2. Write at least 2 additional tests for the
     #    zero_changer
     # function.  Try to choose some unexpected things like empty lists
     # or an empty tuple, or a list with no zeros, etc.
@@ -40,6 +57,14 @@ def run_test_zero_changer():
 
 
 def zero_changer(tuple_of_lists):
+    y = 1
+    for k in range (len(tuple_of_lists)):
+        for i in range (len(tuple_of_lists[k])):
+            if tuple_of_lists[k][i] == 0:
+                tuple_of_lists[k][i] = y
+                y = y + 1
+    return tuple_of_lists
+
     """
     What comes in:  A TUPLE of LISTs,
                     where the interior lists contain only integers.
@@ -64,7 +89,7 @@ def zero_changer(tuple_of_lists):
       :type tuple_of_lists: tuple of list[int]
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
