@@ -174,6 +174,8 @@ def run_test_many_hourglasses():
 
 
 def many_hourglasses(window, square, m, colors):
+
+
     """
     See   many_hourglasses_picture.pdf   in this project for pictures that may
     help you better understand the following specification:
